@@ -46,25 +46,26 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ButtonGameBox.cs">
+    <Compile Include="ButtonTableCell.cs">
       <SubType>Component</SubType>
     </Compile>
-    <Compile Include="GameForm.cs">
+    <Compile Include="GameTableForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameForm.Designer.cs">
-      <DependentUpon>GameForm.cs</DependentUpon>
+    <Compile Include="GameTableForm.Designer.cs">
+      <DependentUpon>GameTableForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="GameSettings.cs">
+    <Compile Include="GameSettingsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="GameSettings.Designer.cs">
-      <DependentUpon>GameSettings.cs</DependentUpon>
+    <Compile Include="GameSettingsForm.Designer.cs">
+      <DependentUpon>GameSettingsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="GameSettings.resx">
-      <DependentUpon>GameSettings.cs</DependentUpon>
+    <Compile Include="ResultBox.cs" />
+    <EmbeddedResource Include="GameSettingsForm.resx">
+      <DependentUpon>GameSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

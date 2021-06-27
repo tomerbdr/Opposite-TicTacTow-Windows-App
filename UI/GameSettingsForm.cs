@@ -10,19 +10,19 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    public partial class GameSettings : Form
+    public partial class GameSettingsForm : Form
     {
-        public GameSettings()
+        public GameSettingsForm()
         {
             InitializeComponent();
         }
 
         private void checkBoxPlayer2_CheckedChanged(object sender, EventArgs e)
         {
-            if((sender as CheckBox).Checked == true)
+            if ((sender as CheckBox).Checked == true)
             {
                 textBoxPlayer2.Enabled = true;
-                textBoxPlayer2.Text = "";
+                textBoxPlayer2.Text = string.Empty;
             }
             else
             {
@@ -31,11 +31,13 @@ namespace UI
             }
         }
 
+        // Game table must be a square matrix - this method change cols value to be same as rows
         private void numericUpDownRows_ValueChanged(object sender, EventArgs e)
         {
             numericUpDownCols.Value = (sender as NumericUpDown).Value;
         }
 
+        // Game table must be a square matrix - this method change rows value to be same as cols
         private void numericUpDownCols_ValueChanged(object sender, EventArgs e)
         {
             numericUpDownRows.Value = (sender as NumericUpDown).Value;
@@ -53,7 +55,7 @@ namespace UI
             }
             else
             {
-                GameForm gameForm = new GameForm((int)numericUpDownRows.Value, (int)numericUpDownCols.Value, textBoxPlayer1.Text, !checkBoxPlayer2.Checked, textBoxPlayer2.Text);
+                GameTableForm gameForm = new GameTableForm((int)numericUpDownRows.Value, textBoxPlayer1.Text, !checkBoxPlayer2.Checked, textBoxPlayer2.Text);
                 this.Visible = false;
                 gameForm.ShowDialog();
                 this.Close();

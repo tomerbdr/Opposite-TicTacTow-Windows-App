@@ -9,18 +9,19 @@ using System.Windows.Forms;
 
 namespace UI
 {
-    class ButtonGameBox : Button
+    internal class ButtonTableCell : Button
     {
-        private Point m_BoxId;
-        public ButtonGameBox(int i_Size, int i_X, int i_Y)
+        private readonly Point r_CellId;
+
+        internal ButtonTableCell(int i_Size, int i_X, int i_Y)
         {
-            m_BoxId.X = i_X;
-            m_BoxId.Y = i_Y;
+            r_CellId.X = i_X;
+            r_CellId.Y = i_Y;
             this.Width = i_Size;
             this.Height = i_Size;
             this.Enabled = true;
         }
 
-        public Point BoxId { get => m_BoxId; }
+        internal Point CellId { get => r_CellId; }
     }
 }

@@ -106,7 +106,7 @@ namespace Logic
             }
         }
 
-        public bool IsSecondPlayerAI
+        public bool IsSecondPlayerPC
         {
             get
             {
@@ -216,12 +216,6 @@ namespace Logic
             r_GameTable.ResetTable();
             m_Winner = null;
             m_CurrentPlayerToPlay = r_PlayerOne;
-        }
-
-        // Return a string that represent current table state. This method necessary because GameTable defined as internal class.
-        public string GetTableToString()
-        {
-            return r_GameTable.ToString();
         }
     }
 }

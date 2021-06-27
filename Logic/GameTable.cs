@@ -15,6 +15,7 @@ namespace Logic
         private readonly int r_Size;
         private int m_LeftSpots;
         private Point m_LastPointUpdated;
+
         public event CellChangedDelegate CellChanged;
 
         // **CTOR**
@@ -175,58 +176,6 @@ namespace Logic
         private bool isPointOccupied(Point i_Point)
         {
             return r_GameTable[i_Point.X, i_Point.Y] != GameOperation.ePlayerSigns.Empty;
-        }
-
-        // Return a string that represent the table - All table indexes will increase by 1 for user convenience.
-        public override string ToString()
-        {
-            StringBuilder tableString = new StringBuilder("  ");
-            for (int i = 0; i < r_Size; i++)
-            {
-                tableString.Append(string.Format(" {0}  ", i + 1)); // First line indexes
-            }
-
-            tableString.Append("\n");
-            for (int i = 0; i < r_Size; i++)
-            {
-                tableString.Append(string.Format("=="));
-
-                for (int count = 0; count < r_Size; count++)
-                {
-                    tableString.Append(string.Format("===="));
-                }
-
-                tableString.Append("\n");
-                tableString.Append((i + 1).ToString() + "|"); // Index in the first line
-
-                for (int j = 0; j < r_Size; j++)
-                {
-                    GameOperation.ePlayerSigns currentSign = r_GameTable[i, j];
-                    if (currentSign == GameOperation.ePlayerSigns.Empty)
-                    {
-                        tableString.Append("   |");
-                    }
-                    else if (currentSign == GameOperation.ePlayerSigns.X)
-                    {
-                        tableString.Append(" X |");
-                    }
-                    else
-                    {
-                        tableString.Append(" O |");
-                    }
-                }
-
-                tableString.Append("\n");
-            }
-
-            tableString.Append(string.Format("=="));
-
-            for (int count = 0; count < r_Size; count++)
-            {
-                tableString.Append(string.Format("===="));
-            }
-
-            return tableString.ToString();
         }
 
         // Set all table cells as Empty, and reset LeftSpots

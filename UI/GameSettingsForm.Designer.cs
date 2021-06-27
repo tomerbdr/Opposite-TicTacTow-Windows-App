@@ -1,7 +1,6 @@
-﻿
-namespace UI
+﻿namespace UI
 {
-    partial class GameSettings
+    public partial class GameSettingsForm
     {
         /// <summary>
         /// Required designer variable.
@@ -18,6 +17,7 @@ namespace UI
             {
                 components.Dispose();
             }
+
             base.Dispose(disposing);
         }
 
