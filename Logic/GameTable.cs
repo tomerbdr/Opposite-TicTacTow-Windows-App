@@ -15,7 +15,7 @@ namespace Logic
         private readonly int r_Size;
         private int m_LeftSpots;
         private Point m_LastPointUpdated;
-        public event Action<Point, char> MoveMaked;
+        public event CellChangedDelegate CellChanged;
 
         // **CTOR**
         internal GameTable(int i_Size)
@@ -61,7 +61,7 @@ namespace Logic
                 m_LastPointUpdated = i_DesiredPoint;
                 isPointValid = true;
                 m_LeftSpots--;
-                MoveMaked.Invoke(i_DesiredPoint, i_SignToInsert == GameOperation.ePlayerSigns.X ? 'X' : 'O');
+                CellChanged.Invoke(i_DesiredPoint, i_SignToInsert == GameOperation.ePlayerSigns.X ? 'X' : 'O');
             }
             
             return isPointValid;

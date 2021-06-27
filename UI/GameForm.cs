@@ -26,7 +26,7 @@ namespace UI
 
         public GameForm(int i_Rows,int i_Cols, string i_Player1Name, bool i_IsPlayer2PC, string i_Player2Name)
         {
-            m_Game = new GameOperation(i_Rows, new Action<Point, char>(boxSelected));
+            m_Game = new GameOperation(i_Rows, new CellChangedDelegate(boxSelected));
             m_Game.SetPlayerTwo(i_IsPlayer2PC == true ? GameOperation.ePlayerType.Pc : GameOperation.ePlayerType.User);
 
             m_NumOfBoxPerCol = i_Cols;

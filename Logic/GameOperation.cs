@@ -4,6 +4,8 @@ using System.Drawing;
 
 namespace Logic
 {
+    public delegate void CellChangedDelegate(Point i_Point, char i_Sign);
+
     public class GameOperation
     {
         public enum ePlayerType
@@ -29,10 +31,10 @@ namespace Logic
         private bool m_IsSecondPlayerAI;
 
         // **CTOR**
-        public GameOperation(int i_TableSize, Action<Point,char> MoveMaked)
+        public GameOperation(int i_TableSize, CellChangedDelegate i_OnCellChange)
         {
             r_GameTable = new GameTable(i_TableSize);
-            r_GameTable.MoveMaked += MoveMaked;
+            r_GameTable.CellChanged += i_OnCellChange;
             r_TableSize = i_TableSize;
             r_PlayerOne = new Player(ePlayerSigns.X,ePlayerType.User);
             m_CurrentPlayerToPlay = r_PlayerOne;
